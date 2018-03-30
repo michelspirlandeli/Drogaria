@@ -31,4 +31,19 @@ public class FabricanteDAOTest {
 			System.out.println(fabricante.getCodigo() + " - " + fabricante.getDescricao());
 		}
 	}
+	
+	@Test
+	public void buscar(){
+		Long codigo = 3L;
+		
+		FabricanteDAO fabricanteDAO = new FabricanteDAO();
+		Fabricante fabricante = fabricanteDAO.buscar(codigo);
+		
+		if(fabricante == null){
+			System.out.println("Nenhum registro encontrado");
+		}else{
+			System.out.println("Registro encontrado:");
+			System.out.println(fabricante.getCodigo() + " - " + fabricante.getDescricao());
+		}
+	}
 }

@@ -20,6 +20,7 @@ public class EstadoDAOTest {
 		estadoDAO.salvar(estado);
 	}
 	@Test
+	@Ignore
 	public void listar() {
 		EstadoDAO estadoDAO = new EstadoDAO();
 		List<Estado> resultado = estadoDAO.listar();
@@ -27,6 +28,21 @@ public class EstadoDAOTest {
 		for(Estado estado : resultado) {
 			System.out.println(estado.getCodigo() + " - " + estado.getSigla() + " - " + estado.getNome());
 		}
+	}
+	
+	@Test
+	public void buscar() {
+		Long codigo = 1L;
+		
+		EstadoDAO estadoDAO = new EstadoDAO();
+		Estado estado = estadoDAO.buscar(codigo);
+		if(estado == null) {
+			System.out.println("Nenhum encontrado");
+		}else {
+			System.out.println("Registro encontrdo");
+		System.out.println(estado.getCodigo() + " - " + estado.getSigla() + " - " + estado.getNome());
+		}
+
 	}
 
 }
